@@ -1,0 +1,5 @@
+/vendor/
+.env
+conexion.php
+composer.lock
+/pruebas/
