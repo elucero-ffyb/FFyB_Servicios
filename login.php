@@ -20,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta para obtener el usuario
     //$sql = "SELECT UsuarioId , UsuarioNombre, UsuarioPassword, PerfilId FROM USUARIO WHERE trim(UsuarioId) = :username";
 
-    $sql="SELECT UsuarioId , UsuarioNombre, UsuarioPassword, PerfilId
-          FROM usuario
-          WHERE ltrim(UsuarioId) =:username";
+    $sql="SELECT PrestadorLegajo , LegajoUsuario, LegajoPassword, LegajoNombre, PerfilId
+          FROM LEGAJO
+          WHERE ltrim(LegajoUsuario) =:username AND LegajoPassword =:password";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':username' => $username]);
+    $stmt->execute([':username' => $username, ':password' => $password]);
     //$user = $stmt->fetch(PDO::FETCH_OBJ);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //var_dump($user);
         //echo "<br>";
             // Contraseña correcta: inicializar sesión
-            $_SESSION['user_id'] = $user['UsuarioId'];
-            $_SESSION['user_name'] = $user['UsuarioNombre'];
+            $_SESSION['user_id'] = $user['PrestadorLegajo'];
+            $_SESSION['user_name'] = $user['LegajoNombre'];
             $_SESSION['user_role'] = $user['PerfilId'];
             // Redirigir al dashboard
             header('Location: dashboard.php');

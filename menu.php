@@ -2,11 +2,15 @@
 //recorrer segun perfil el menu que corresponda
 
 
-$query = "SELECT p.PerfilDescripcion, p2.OpcionHabilitadaId, p2.PerfilOpcionDescripcion, p2.PerfilOpcionURL 
+$query = "SELECT p.PerfilDescripcion, p2.OpcionHabilitadaId, p2.PerfilOpcionDescripcion 
           FROM perfil p 
           INNER JOIN perfilopcion p2 
           ON p.PerfilId = p2.PerfilId
-          WHERE LTRIM(p.PerfilId) = :perfilid";
+          WHERE LTRIM(p.PerfilId) = :perfilid
+          order by p2.PerfilOpcionDescripcion asc";
+
+$query="select * from PERFILOPCION where PerfilId= :perfilid order by PerfilOpcionDescripcion asc";
+
 
 $stmt0 = $pdo->prepare($query);
 $stmt0->execute([':perfilid' => $perfilid]);
@@ -74,12 +78,13 @@ $error = $menuItems ? "Menú encontrado." : "Usuario no tiene opciones de menú 
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <?php foreach ($menuItems as $item) { 
-                $url = $item['PerfilOpcionURL'];
-                $fileinfo = pathinfo($url);
+                $url = $item['PerfilOpcionDescripcion'];
+                $OpcionHabilitadaId = trim($item['OpcionHabilitadaId']);
+                $fileinfo = pathinfo($OpcionHabilitadaId);
                 $filename = $fileinfo['filename'];
 
               ?>
-                  <a class="dropdown-item" href="<?php echo $filename; ?>.php"><?php echo $item['PerfilOpcionDescripcion']; ?></a>
+                  <a class="dropdown-item" href='#' onClick="loadPage('<?php echo $filename;?>')"><?php echo $item['PerfilOpcionDescripcion']; ?></a>
               <?php } ?>  
             </div>
               <li class="nav-item">

@@ -21,7 +21,7 @@ header("Content-Type: text/html;charset=utf-8");
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
 
-    <title>Acceso puestos de trabajo</title>
+    <title>Acceso SIGAT</title>
     <style>
         .form-inline .form-group {
             display: block;

@@ -25,7 +25,7 @@ $perfilid=$_SESSION['user_role'];
                         <img class='' src='img/logoFFyb_2024.png' height='50' />
                         <div class="card-body">
                             <div class="col-md-8">
-                                <h4>Sistema puestos de trabajo</h4>
+                                <h4>Sistema de gestión de Asistencia Técnica (SIGAT)</h4>
                                 <div id="menu"><?php include('menu.php'); ?></div>
                                 <!-- Tabla para mostrar los resultados -->
                                 <div class="jumbotron" id="resultado" height="100%">a
@@ -38,13 +38,13 @@ $perfilid=$_SESSION['user_role'];
                  
                 </div>
             </div>
-            <div class="container" height="100%">
+            <div class="container" height="100%" id="detalles">
                 b
 
             </div>
         </section>
     </section>
 </section>
-    
+<script type="text/javascript" src="js/sigat.js"></script>
 </body>
 </html>
