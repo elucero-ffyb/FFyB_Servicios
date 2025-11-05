@@ -1,3 +1,4 @@
+
 function loadPage(page) {
     page = page.endsWith('.php') ? page : page + '.php';
 
@@ -9,7 +10,7 @@ function loadPage(page) {
             return response.text();
         })
         .then(html => {
-            document.getElementById('detalles').innerHTML = html;
+            document.getElementById('resultado').innerHTML = html;
         })
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);

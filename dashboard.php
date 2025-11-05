@@ -28,8 +28,8 @@ $perfilid=$_SESSION['user_role'];
                                 <h4>Sistema de gestión de Asistencia Técnica (SIGAT)</h4>
                                 <div id="menu"><?php include('menu.php'); ?></div>
                                 <!-- Tabla para mostrar los resultados -->
-                                <div class="jumbotron" id="resultado" height="100%">a
-                                    
+                                <div class="jumbotron" id="resultado" height="100%">
+                                    a
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,7 @@ $perfilid=$_SESSION['user_role'];
                 </div>
             </div>
             <div class="container" height="100%" id="detalles">
-                b
-
+                
             </div>
         </section>
     </section>

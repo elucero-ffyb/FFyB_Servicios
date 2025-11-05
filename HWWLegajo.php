@@ -27,16 +27,27 @@ $query="SELECT [PrestadorLegajo]
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Procesar los resultados
+  echo "<h3>Listado de Legajos</h3>";
+  echo "<table class='table table-striped' border='1' cellpadding='5' cellspacing='0' width='50%' style='text-align: left;'>";
+  echo "<thead class='thead-dark'>
+        <tr>
+            <th>Legajo</th>
+            <th>Nombre</th>
+            <th>CUIT</th>
+            <th>Usuario</th>
+        </tr>
+        </thead>";
   foreach ($result as $row) {
-        echo "<table>";
-        echo "<th><td>Legajo</td><td>Nombre</td><td>CUIT</td><td>Usuario</td></th>";
-        echo "<tr><td>" . $row['PrestadorLegajo'] . "</td>
-        <td>" . $row['LegajoNombre'] . "</td>
-        <td>" . $row['PrestadorCUIT'] . "</td>
-        <td>" . $row['LegajoUsuario'] . "</td></tr>";
-        echo "</table>";
+    ?>    
+    <tr>
+        <td align="left"><?php echo $row['PrestadorLegajo'];?></td>
+        <td align="left"><?php echo $row['LegajoNombre'];?></td>
+        <td align="left"><?php echo $row['PrestadorCUIT'];?></td>
+        <td text-align="center"><?php echo $row['LegajoUsuario'];?></td>
+    </tr>
+    <?php    
   }
-
+echo "</table>";
 
 //echo $_SESSION['user_role']."<br>";
 $perfilid=$_SESSION['user_role'];
